@@ -3,15 +3,16 @@ const { Comments } = require('../../models/');
 const withAuth = require('../../utils/auth');
 
 router.post('/', withAuth, async (req, res) => {
-  try {
+  // try {
     const newComments = await Comments.create({
       ...req.body,
       userId: req.session.userId,
     });
+    console.log(newComments);
     res.json(newComments);
-  } catch (err) {
-    res.status(500).json(err);
-  }
+  // } catch (err) {
+    // res.status(500).json(err);
+  // }
 });
 
 module.exports = router;

@@ -1,14 +1,14 @@
 const commentFormHandler = async function(event) {
     event.preventDefault();
   
-    const postId = document.querySelector('input[name="Blog-id"]').value;
+    const blogId = document.querySelector('input[name="Blog-id"]').value;
     const body = document.querySelector('textarea[name="comment-body"]').value;
   
     if (body) {
       await fetch('/api/comments', {
         method: 'POST',
         body: JSON.stringify({
-          postId,
+          blogId,
           body
         }),
         headers: {
@@ -22,5 +22,5 @@ const commentFormHandler = async function(event) {
   
   document
     .querySelector('#new-comment-form')
-    .addEventListener('submit', commentFormHandler);
+    .addEventListener('click', commentFormHandler);
   

@@ -31,7 +31,7 @@ router.get('/Blog/:id', async (req, res) => {
 
     if (BlogData) {
       const Blog = BlogData.get({ plain: true });
-
+console.log(Blog);
       res.render('single-Blog', { Blog });
     } else {
       res.status(404).end();
